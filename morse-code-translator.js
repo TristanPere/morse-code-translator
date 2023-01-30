@@ -1,7 +1,7 @@
 import { morseCode, alphabet} from "./morse-data-object.js";
 const englishInput = document.querySelector("#english-input");
 const morseInput = document.querySelector("#morse-input");
-
+const morseButton = document.querySelector("#morse-button")
 
 export const englishToMorse = (english) => {
     const englishStringArr = english.toLowerCase().split("")
@@ -17,6 +17,8 @@ export const englishToMorse = (english) => {
 };
 const handleMorseTranslation = (event) => {
     morseInput.value = englishToMorse(event.target.value)
+    let morse = new morseSynth();
+    morse.play(event.target.value);
 }
 export const morseToEnglish = (morse) => {
     const morseStringArr = morse.split(" ")
@@ -36,11 +38,16 @@ export const morseToEnglish = (morse) => {
 
 const handleEnglishTranslation = (event) =>{
     englishInput.value=morseToEnglish(event.target.value)
+    let morse = new morseSynth();
+    morse.play(morseToEnglish(event.target.value));
 }
 
+const handleButton =()=>{
+    let morse = new morseSynth();
+    morse.play("hello world");
+}
 
+morseButton.addEventListener("click", handleButton)
+morseInput.addEventListener("change", handleEnglishTranslation)
+englishInput.addEventListener("change" , handleMorseTranslation)
 
-morseInput.addEventListener("input", handleEnglishTranslation)
-englishInput.addEventListener("input" , handleMorseTranslation)
-
-// export
