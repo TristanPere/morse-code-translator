@@ -1,5 +1,6 @@
 import { englishToMorse, morseToEnglish } from "./morse-code-translator";
 
+
 describe("englishToMorse", () => {
   it("Should return a string", () => {
     const translatedString = englishToMorse("Hello");
@@ -18,7 +19,7 @@ describe("englishToMorse", () => {
     expect(translatedString).toBe("/");
   });
   it("Should split a word into morse letters with spaces inbetween", () => {
-    const translate = englishToMorse("Hi");
+    const translatedString = englishToMorse("Hi");
     expect(translatedString).toBe(".... ..");
   });
   it("Should handle a multicharacter string input", () => {
@@ -32,13 +33,14 @@ describe("englishToMorse", () => {
     expect(translatedString).toBe("#");
   });
   it("Should contain an error message editor an error message when untranslateable characters are input", ()=>{
+    const errorMessageArr = ["Error in input. Cannot translate: "]
     const translatedString = englishToMorse("¦")
     const errorMessage = errorMessageArr.join()
     expect(errorMessage).toBe("Error in input. Cannot translate: ¦")
   })
   it("Should translate translatable characters and leave untranslatable characters in same string", ()=>{
     const translatedString = englishToMorse("Hello wor¦d!");
-    expect(translatedString).toBe(".... . .-.. .-.. --- / .-- --- .-. .-.. # -.-.--");
+    expect(translatedString).toBe(".... . .-.. .-.. --- / .-- --- .-. # -.. -.-.--");
   })
   it("Should handle special characters", () => {
     const translatedString = englishToMorse("&");
