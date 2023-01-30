@@ -1,4 +1,4 @@
-const { it } = require("node:test");
+import { englishToMorse, morseToEnglish } from "./morse-code-translator";
 
 describe("englishToMorse", () => {
   it("Should return a string", () => {

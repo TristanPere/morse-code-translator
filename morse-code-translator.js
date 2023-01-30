@@ -1,11 +1,10 @@
-// queery select for input box
+import {morsecode} from "./morse-data-object";
 
-// queery select for output box
+const englishInput = document.querySelector("#english-input")
+const morseInput = document.querySelector("#morse-input")
 
-// object with key of letter and value of morse. Questionable validity
+export const englishToMorse = (english) => {
+   return morsecode.english
+}
 
-// function to take input of a english character (upper or lower case) and translate it into a morse code character
-
-// function to take input of a string (upper or lower case) and translate it into a morse code string
-
-// function to handle change of an input bar of type text
+console.log(englishToMorse("a"))
